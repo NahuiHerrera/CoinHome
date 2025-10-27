@@ -1,0 +1,172 @@
+/* Importación de Tipografías desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&family=Roboto+Mono:wght@400;500&display=swap');
+
+/* Variables de Color de CoinHome */
+:root {
+    --color-principal: #34E0BB; /* Turquesa/Menta de Encabezados/Botones */
+    --color-fondo: #F0F0F0; /* Gris claro de la sección principal */
+    --color-exito: #4CAF50; /* Verde de la pantalla de éxito */
+    --color-error: #dd2f23; /* Rojo de la pantalla de error */
+    --color-texto-claro: #FFFFFF;
+    --color-texto-oscuro: #333333;
+    --color-divisor: #FFC0CB; /* Rosa claro de la línea divisoria */
+    --color-error-icon-bg: #FFFFFF; /* Fondo del círculo del icono X */
+    --color-error-icon-border: #CCCCCC; /* Borde del círculo del icono X */
+    --color-error-icon-text: #333333; /* Color de la X */
+}
+
+/* *** ESTILOS GLOBALES PARA FIJAR DIMENSIONES Y ELIMINAR SCROLL *** */
+body {
+    background-color: var(--color-fondo);
+    font-family: 'Inter', sans-serif;
+    color: var(--color-texto-oscuro);
+    
+    /* MODIFICACIONES CLAVE: */
+    overflow: hidden; /* Elimina el desplazamiento (scroll) */
+    height: 100vh; /* Fija la altura del body al 100% del viewport */
+    margin: 0;
+}
+
+.container-fluid {
+    /* Altura fija para que coincida con la altura del body */
+    height: 100vh; 
+    /* Estilos para el contenedor de la app */
+    max-width: 400px;
+    margin: auto; 
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    /* Asegura que el contenido (flex-grow-1) ocupe el espacio restante */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tipografía */
+.font-poppins { font-family: 'Poppins', sans-serif; }
+.font-roboto-mono { font-family: 'Roboto Mono', monospace; }
+.fw-semi-bold { font-weight: 600; }
+.fw-medium { font-weight: 500; }
+
+/* Estilos de Encabezados y Secciones de Color (screen-header-color) */
+.header-coinhome {
+    background-color: var(--color-principal);
+    color: var(--color-texto-claro);
+    padding: 20px 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Estilos para Pantallas con cabecera de color (Estructura de la app) */
+.screen-header-color {
+    background-color: var(--color-principal); /* Turquesa/Menta */
+    color: var(--color-texto-claro);
+    padding: 30px 0; /* Altura del encabezado de estado */
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Estilos para el cuerpo principal blanco (Ocupa el espacio restante) */
+.screen-white-body {
+    background-color: #FFFFFF;
+    padding: 40px 20px;
+    /* Eliminamos el min-height manual, flex-grow-1 se encarga de la altura */
+}
+
+/* Estilos de Botones Circulares (Simulacro de Iconografía) */
+.btn-icono-circle {
+    width: 65px;
+    height: 65px;
+    background-color: rgba(179, 219, 210, 0.5); /* Color claro para los círculos vacíos */
+    border-radius: 50%;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-texto-oscuro);
+    font-size: 0.75rem;
+    text-align: center;
+    line-height: 1.2;
+    padding: 5px;
+}
+
+/* Estilo de la Sección de Tarjeta (Fondo de color dentro del cuerpo blanco) */
+.section-tarjeta {
+    background-color: var(--color-principal);
+    color: var(--color-texto-claro);
+    padding: 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: -20px; /* Ajuste para expandir a los bordes del contenedor blanco */
+    margin-right: -20px;
+}
+
+/* Línea divisoria simulada */
+.section-tarjeta::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: var(--color-divisor);
+}
+
+/* Estilos para Botones Principales (parte inferior de las pantallas) */
+.btn-bottom-primary {
+    /* El ancho debe ser 100% dentro de su contenedor (ver HTML) */
+    border-color: var(--color-principal);
+    color: var(--color-texto-claro);
+    padding: 15px 30px;
+    border-radius: 50px;
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* Pantallas de Estado (Éxito y Error) */
+.screen-success {
+    background-color: var(--color-exito);
+}
+.screen-error {
+    background-color: var(--color-error);
+}
+.status-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 0 auto 20px;
+}
+.error-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: var(--color-error-icon-bg); /* Fondo blanco */
+    border: 1px solid var(--color-error-icon-border); /* Borde gris */
+    color: var(--color-error-icon-text); /* Color de la X */
+    font-family: 'Poppins', sans-serif; /* Poppins para la X */
+    font-size: 2.5rem; /* X más grande */
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    line-height: 1; /* Para centrar la X verticalmente */
+}
+
+.btn-error-primary {
+    background-color: var(--color-error); /* Usa el nuevo color para el botón */
+    border-color: var(--color-error);
+    color: var(--color-texto-claro);
+    padding: 15px 30px;
+    border-radius: 50px;
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    width: 100%; /* Ocupa el 100% del ancho del contenedor */
+    margin: 0; /* Eliminar márgenes por defecto */
+}
