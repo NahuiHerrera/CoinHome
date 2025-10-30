@@ -92,23 +92,26 @@ body {
 .section-tarjeta {
     background-color: var(--color-principal);
     color: var(--color-texto-claro);
-    padding: 15px;
+    padding: 15px; /* Mantener padding general */
     position: relative;
     display: flex;
     align-items: center;
-    margin-left: -20px; /* Ajuste para expandir a los bordes del contenedor blanco */
+    margin-left: -20px;
     margin-right: -20px;
 }
 
-/* Línea divisoria simulada */
+/* Línea divisoria simulada - MODIFICACIÓN AQUÍ */
 .section-tarjeta::before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
+    left: 50%;
+    top: 0; /* Estira la línea hasta el borde superior */
+    bottom: 0; /* Estira la línea hasta el borde inferior */
+    width: 2px;
     background-color: var(--color-divisor);
+    transform: translateX(-50%);
+    /* Opcional: Si quieres un pequeño margen arriba/abajo de la línea,
+       puedes usar top: 5px; bottom: 5px; */
 }
 
 /* Estilos para Botones Principales (parte inferior de las pantallas) */
